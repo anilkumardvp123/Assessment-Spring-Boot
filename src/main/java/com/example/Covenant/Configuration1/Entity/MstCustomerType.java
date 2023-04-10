@@ -9,12 +9,11 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "LoanType")
-public class LoanType
+@Table(name = "tbl_mst_customer_type")
+public class MstCustomerType
 {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
-    private String LoanType;
-
+    private String customerType;
 }

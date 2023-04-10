@@ -1,7 +1,7 @@
 package com.example.Covenant.Configuration1.Service;
 
 import com.example.Covenant.Configuration1.Entity.*;
-import com.example.Covenant.Configuration1.Entity.CustomerType;
+import com.example.Covenant.Configuration1.Entity.MstCustomerType;
 import com.example.Covenant.Configuration1.Repository.*;
 import com.example.Covenant.Configuration1.dto.CovenantConfigurationDto;
 import com.example.Covenant.Configuration1.dto.CovenantCreationDto;
@@ -32,33 +32,33 @@ public class CovenantConfigurationServiceImpl implements CovenantCofigurationSer
 
 
     @Override
-    public List<CustomerCategory> GetAllCustomerCategory() {
+    public List<MstCustomerCategory> GetAllCustomerCategory() {
         return customerCategoryRepository.findAll();
     }
 
     @Override
-    public List<CustomerType> GetAllCustomerType()
+    public List<MstCustomerType> GetAllCustomerType()
     {
         return customerTypeRepository.findAll();
     }
 
     @Override
-    public List<LoanType> GetAllLoanType() {
+    public List<MstLoanType> GetAllLoanType() {
         return loanTypeRepository.findAll();
     }
 
     @Override
-    public List<ProductId> GetAllProductId() {
+    public List<MstProductType> GetAllProductId() {
         return productIdRepository.findAll();
     }
 
     @Override
-    public CustomerCategory Save(CovenantConfigurationDto covenantConfigurationDto) {
+    public MstCustomerCategory Save(CovenantConfigurationDto covenantConfigurationDto) {
 
         covenantConfigurationDto.getCustomerCategoryList().forEach(customerCategory -> {
-            CustomerCategory cc = CustomerCategory.builder().id(customerCategory).build();
-            CovenantMainTable.builder()
-                    .customerCategory(cc)
+            MstCustomerCategory cc = MstCustomerCategory.builder().id(customerCategory).build();
+            CovenantConfig.builder()
+                    .mstCustomerCategory(cc)
                     .build();
             covenantConfigurationDto.getCustomerCategoryList();
             covenantMainTableRepository.save(null);
@@ -67,21 +67,20 @@ public class CovenantConfigurationServiceImpl implements CovenantCofigurationSer
     }
 
     @Override
-    public List<CovenantMainTable> GetAll() {
+    public List<CovenantConfig> GetAll() {
         return covenantMainTableRepository.findAll();
     }
 
     @Override
-    public CovenantMainTable Edit(CovenantMainTable covenantMainTable) {
-        return null;
-    }
-
-    @Override
-    public CovenantCreation add(CovenantCreationDto covenantCreationDto) {
+    public CovenantConfig Edit(CovenantConfig covenantConfig) {
         return null;
     }
 
 
-    //List<CustomerCategory>  customerCategories=new ArrayList<>();
 
-}
+
+    }
+
+
+
+

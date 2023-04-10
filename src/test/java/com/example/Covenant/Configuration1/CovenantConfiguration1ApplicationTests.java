@@ -1,6 +1,7 @@
 package com.example.Covenant.Configuration1;
 
-import com.example.Covenant.Configuration1.Entity.CovenantMainTable;
+import com.example.Covenant.Configuration1.Entity.CovenantConfig;
+import com.example.Covenant.Configuration1.Entity.CovenantConfig;
 import com.example.Covenant.Configuration1.Repository.CovenantMainTableRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,22 +20,21 @@ class CovenantConfiguration1ApplicationTests {
 
 	@Test
 	public void Create() {
-		CovenantMainTable covenantMainTable = new CovenantMainTable();
-		covenantMainTable.setId(1);
-		//covenantMainTable.setCustomerCategory("Business");
-		//covenantMainTable.setLoanType("Secure");
+	CovenantConfig covenantMainTable = new CovenantConfig();
+    covenantMainTable.setId(1);
+	covenantMainTable.setCustomerCategory("Business");
+	covenantMainTable.setLoanType("Secure");
 		covenantMainTable.setStatus("Active");
-		covenantMainTable.setLatestComment("Good");
-		covenantMainTable.setLatestModifiedBy("aaa");
-		//covenantMainTable.setCovenantProductId();
+	covenantMainTable.setLatestComment("Good");
+	covenantMainTable.setLatestModifiedBy("aaa");
 		covenantMainTable.setLatestModifiedDate(LocalDateTime.parse("19/08/2022"));
 		assertNotNull(covenantMainTable.getId());
 		assertNotNull(covenantMainTable.getLoanType());
-	}
+}
 
 	@Test
-	public void ReadAll() {
-		List<CovenantMainTable> listAll = CovenantMainTableRepository.GetAll();
+public void ReadAll() {
+		List<CovenantConfig> listAll = CovenantMainTableRepository.GetAll();
 		assertThat(listAll).size().isGreaterThan(0);
 		assertThat(listAll).size().isLessThan(20);
 
@@ -42,7 +42,7 @@ class CovenantConfiguration1ApplicationTests {
 
 	@Test
 	public void UpdateCovenantTable() {
-		CovenantMainTable covenantMainTable = CovenantMainTableRepository.GetAll().get(1);
+		CovenantConfig covenantMainTable = CovenantMainTableRepository.GetAll().get(1);
 		covenantMainTable.setId(3);
 		covenantMainTable.setStatus("InActive");
 		covenantMainTableRepository.save(covenantMainTable);

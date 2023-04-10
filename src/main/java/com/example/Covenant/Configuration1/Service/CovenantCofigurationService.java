@@ -6,22 +6,21 @@ import com.example.Covenant.Configuration1.dto.CovenantCreationDto;
 
 import java.util.List;
 
-public interface CovenantCofigurationService
-{
-   public List<CustomerCategory> GetAllCustomerCategory();
+public interface CovenantCofigurationService {
+    public List<MstCustomerCategory> GetAllCustomerCategory();
 
-   public List<CustomerType> GetAllCustomerType();
+    public List<MstCustomerType> GetAllCustomerType();
 
-  public List<LoanType> GetAllLoanType();
+    public List<MstLoanType> GetAllLoanType();
 
-   public List<ProductId> GetAllProductId();
-   public CustomerCategory Save(CovenantConfigurationDto covenantConfigurationDto);
+    public List<MstProductType> GetAllProductId();
 
-
-    public List<CovenantMainTable> GetAll();
-
-    public CovenantMainTable Edit(CovenantMainTable covenantMainTable);
+    public MstCustomerCategory Save(CovenantConfigurationDto covenantConfigurationDto);
 
 
-    CovenantCreation add(CovenantCreationDto covenantCreationDto);
+    public List<CovenantConfig> GetAll();
+
+    public CovenantConfig Edit(CovenantConfig covenantConfig);
+
+
 }

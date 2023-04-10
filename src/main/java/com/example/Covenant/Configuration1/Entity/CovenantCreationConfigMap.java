@@ -1,9 +1,7 @@
 package com.example.Covenant.Configuration1.Entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,20 +9,22 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-@Table(name = "CovenantProductId")
-public class CovenantProductId
-{
+@Table(name = "tbl_covenant_creation_config_map")
+public class CovenantCreationConfigMap {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private int id;
+    private int CovenantId;
+    private String covenantType;
+    private String covenantDescription;
+
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
-    @JsonIgnore
-    private CovenantProductId covenentProductId;
-    private CovenantMainTable covenantMainTable;
-
-
-
+    @JoinColumn(name = "covenantConfigId")
+    private CovenantConfig covenantConfig;
 
 }
+
+
+
+
+

@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "ProductId")
-public class ProductId
+@Table(name = "tbl_mst_product_type")
+public class MstProductType
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

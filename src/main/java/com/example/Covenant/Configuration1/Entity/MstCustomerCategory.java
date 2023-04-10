@@ -2,19 +2,20 @@ package com.example.Covenant.Configuration1.Entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
+@Entity
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "CustomerType")
-public class CustomerType
-{
+@Table(name = "tbl_mst_customer_category")
+public class MstCustomerCategory {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    private String customerCategory;
 
-    private String CustomerType;
 }

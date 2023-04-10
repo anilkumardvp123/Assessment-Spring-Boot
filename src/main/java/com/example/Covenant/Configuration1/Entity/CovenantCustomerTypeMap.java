@@ -1,6 +1,5 @@
 package com.example.Covenant.Configuration1.Entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,17 +11,20 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "CustomerType")
-public class CovenantCustomerType
+@Table(name = "tbl_covenant_customer_type_map")
+public class CovenantCustomerTypeMap
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
     @ManyToOne(cascade=CascadeType.ALL,fetch =FetchType.LAZY )
     @JoinColumn(name = "id")
-    @JsonIgnore
-    private CovenantCustomerType covenantCustomerType;
-    private CovenantMainTable covenantMainTable;
+    private MstCustomerType customerType;
+
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JoinColumn(name = "covenantConfigId")
+    private CovenantConfig covenantConfig;
 
 
 

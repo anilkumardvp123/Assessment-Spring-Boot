@@ -1,14 +1,13 @@
 package com.example.Covenant.Configuration1.Repository;
 
-import com.example.Covenant.Configuration1.Entity.CovenantMainTable;
+import com.example.Covenant.Configuration1.Entity.CovenantConfig;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface CovenantMainTableRepository extends JpaRepository<CovenantMainTable,Integer>
+public interface CovenantMainTableRepository extends JpaRepository<CovenantConfig,Integer>
 {
-    static List<CovenantMainTable> GetAll() {
+    static List<CovenantConfig> GetAll() {
         return null;
     }
 
